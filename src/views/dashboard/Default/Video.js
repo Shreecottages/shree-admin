@@ -12,7 +12,7 @@ import { ArrowForward } from '@mui/icons-material';
 
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.dark,
+  backgroundColor: '#FFBC00',
   color: '#fff',
   overflow: 'hidden',
   position: 'relative',
@@ -21,7 +21,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
     position: 'absolute',
     width: 210,
     height: 210,
-    background: theme.palette.secondary[800],
+    background: '#E7AA0D',
     borderRadius: '50%',
     top: -85,
     right: -95,
@@ -35,7 +35,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
     position: 'absolute',
     width: 210,
     height: 210,
-    background: theme.palette.secondary[800],
+    background: '#ECAC0D',
     borderRadius: '50%',
     top: -125,
     right: -15,
@@ -49,9 +49,9 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 // ===========================|| DASHBOARD DEFAULT - EARNING CARD ||=========================== //
 
-const EarningCard = ({ isLoading }) => {
+const VideoCard = ({ isLoading }) => {
   const theme = useTheme();
-  const cont = 3;
+  const video = 6;
   // const [anchorEl, setAnchorEl] = useState(null);
 
   // const handleClick = (event) => {
@@ -80,15 +80,15 @@ const EarningCard = ({ isLoading }) => {
               <Grid item>
                 <Grid container alignItems="center" justifyContent="space-between" sx={{width:"100%"}}>
                   <Grid item>
-                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500}}>{cont}</Typography>
+                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500}}>{video}</Typography>
                   </Grid>
                   <Grid item>
                     <Button variant='contained' sx={{
-                        backgroundColor: theme.palette.secondary[200],
-                        color: theme.palette.secondary.dark,
+                        backgroundColor: '#FFD358',
+                        color: '#F6B500',
                         zIndex: 1,
                         ':hover':{
-                          backgroundColor: theme.palette.secondary.dark,
+                          backgroundColor: '#FFBC00',
                           color: 'common.white'
                         }
                       }}><ArrowForward /></Button>
@@ -96,15 +96,15 @@ const EarningCard = ({ isLoading }) => {
                 </Grid>
               </Grid>
               <Grid item sx={{mt:"15px"}}>
-                  <LinearProgress variant="determinate" value={cont>=100?100:cont} sx={{
-                    color: theme.palette.secondary.dark,
-                    backgroundColor: theme.palette.secondary[200],
+                  <LinearProgress variant="determinate" value={video>=100?100:video} sx={{
+                    color: theme.palette.warning.dark,
+                    backgroundColor: '#FDDA7A',
                     height: '7px',
                     // padding:"1px",
                     borderRadius:"4px",
                     zIndex: 1,
                     "& .MuiLinearProgress-bar": {
-                      backgroundColor: theme.palette.secondary[800]
+                      backgroundColor: '#E7AA0D'
                     }
                   }} />
               </Grid>
@@ -116,8 +116,8 @@ const EarningCard = ({ isLoading }) => {
   );
 };
 
-EarningCard.propTypes = {
+VideoCard.propTypes = {
   isLoading: PropTypes.bool
 };
 
-export default EarningCard;
+export default VideoCard;

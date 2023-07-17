@@ -31,12 +31,14 @@ export default function themePalette(theme) {
     orange: {
       light: theme.colors?.orangeLight,
       main: theme.colors?.orangeMain,
-      dark: theme.colors?.orangeDark
+      dark: theme.colors?.orangeDark,
     },
     warning: {
       light: theme.colors?.warningLight,
       main: theme.colors?.warningMain,
-      dark: theme.colors?.warningDark
+      dark: theme.colors?.warningDark,
+      200: theme.colors?.warning200,
+      800: theme.colors?.warning800
     },
     success: {
       light: theme.colors?.successLight,

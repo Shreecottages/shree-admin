@@ -1,23 +1,24 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
-import { Avatar, Box, Button, Grid, Typography } from '@mui/material';
-
+import { Box, Button, Grid, Typography, LinearProgress } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
 // third-party
-import Chart from 'react-apexcharts';
+// import Chart from 'react-apexcharts';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonTotalOrderCard from 'ui-component/cards/Skeleton/EarningCard';
 
-import ChartDataMonth from './chart-data/total-order-month-line-chart';
-import ChartDataYear from './chart-data/total-order-year-line-chart';
+// import ChartDataMonth from './chart-data/total-order-month-line-chart';
+// import ChartDataYear from './chart-data/total-order-year-line-chart';
 
 // assets
-import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+// import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+// import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
   backgroundColor: theme.palette.primary.dark,
@@ -66,10 +67,11 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 const TotalOrderLineChartCard = ({ isLoading }) => {
   const theme = useTheme();
 
-  const [timeValue, setTimeValue] = useState(false);
-  const handleChangeTime = (event, newValue) => {
-    setTimeValue(newValue);
-  };
+  // const [timeValue, setTimeValue] = useState(false);
+  // const handleChangeTime = (event, newValue) => {
+  //   setTimeValue(newValue);
+  // };
+  const img = 14;
 
   return (
     <>
@@ -77,9 +79,46 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
         <SkeletonTotalOrderCard />
       ) : (
         <CardWrapper border={false} content={false}>
-          <Box sx={{ p: 2.25 }}>
+          <Box sx={{ p: 3.25 }}>
             <Grid container direction="column">
               <Grid item>
+                <Grid container sx={{mb: '20px'}}>
+                  <Grid item sx={{zIndex: 1}}>
+                    <Typography variant='h3' sx={{color:"common.white"}}>Total Images</Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Grid container alignItems="center" justifyContent="space-between" sx={{width:"100%"}}>
+                  <Grid item>
+                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500}}>{img}</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Button variant='contained' sx={{
+                        backgroundColor: theme.palette.primary[200],
+                        color: theme.palette.primary.dark,
+                        zIndex: 1,
+                        ':hover':{
+                          backgroundColor: theme.palette.primary.dark,
+                          color: 'common.white'
+                        }
+                      }}><ArrowForward /></Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item sx={{mt:"15px"}}>
+                  <LinearProgress variant="determinate" value={img>=100?100:img} sx={{
+                    color: theme.palette.primary.dark,
+                    // padding:"1px",
+                    height: '7px',
+                    borderRadius:"4px",
+                    zIndex: 1,
+                    "& .MuiLinearProgress-bar": {
+                      backgroundColor: theme.palette.primary[800]
+                    }
+                  }} />
+              </Grid>
+              {/* <Grid item>
                 <Grid container justifyContent="space-between">
                   <Grid item>
                     <Avatar
@@ -95,32 +134,14 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                       <LocalMallOutlinedIcon fontSize="inherit" />
                     </Avatar>
                   </Grid>
-                  <Grid item>
-                    <Button
-                      disableElevation
-                      variant={timeValue ? 'contained' : 'text'}
-                      size="small"
-                      sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, true)}
-                    >
-                      Month
-                    </Button>
-                    <Button
-                      disableElevation
-                      variant={!timeValue ? 'contained' : 'text'}
-                      size="small"
-                      sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, false)}
-                    >
-                      Year
-                    </Button>
-                  </Grid>
                 </Grid>
-              </Grid>
-              <Grid item sx={{ mb: 0.75 }}>
-                <Grid container alignItems="center">
-                  <Grid item xs={6}>
+              </Grid> */}
+              {/* <Grid item sx={{ mb: 0.75 }}>
+                <Grid container alignItems="center" justifyContent="space-between" sx={{width:"100%"}}>
+                  <Grid item>
                     <Grid container alignItems="center">
+                    
+                    
                       <Grid item>
                         {timeValue ? (
                           <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$108</Typography>
@@ -157,7 +178,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                     {timeValue ? <Chart {...ChartDataMonth} /> : <Chart {...ChartDataYear} />}
                   </Grid>
                 </Grid>
-              </Grid>
+              </Grid> */}
             </Grid>
           </Box>
         </CardWrapper>
