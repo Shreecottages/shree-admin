@@ -51,7 +51,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 const EarningCard = ({ isLoading }) => {
   const theme = useTheme();
-  const cont = 3;
+  const cont = 345;
   // const [anchorEl, setAnchorEl] = useState(null);
 
   // const handleClick = (event) => {

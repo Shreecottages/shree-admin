@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "category": "Decoration",
+      "img": "",
+      "desc": "Decoration image"
+    },
+    {
+      "id": 2,
+      "category": "Decoration",
+      "img": "",
+      "desc": "Decoration image"
+    },
+    {
+      "id": 3,
+      "category": "Decoration",
+      "img": "",
+      "desc": "Decoration image"
+    },
+    {
+      "id": 4,
+      "category": "Decoration",
+      "img": "",
+      "desc": "Decoration image"
+    }
+]
