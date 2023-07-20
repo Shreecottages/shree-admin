@@ -73,7 +73,7 @@ const MaterialIcons = () =>{
     setDatav((prevDatav) => prevDatav.filter((item) => item.id !== itemIdV));
   };
 return(
-  <MainCard title="Upload Images">
+  <MainCard title="Upload Video Links">
     <Grid container spacing={gridSpacing}>
       <Grid item xs={6} sm={8} md={12}>
           <form onSubmit={handleSubmit}>
