@@ -87,6 +87,7 @@ const Typography = () =>{
     setData((prevData) => [...prevData, { ...newItem, id: lastUsedId + 1 }]);
     setLastUsedId((prevId) => prevId + 1);
     setNewItem({ category: categories[0], img: null, desc: '' });
+    console.log(data);
   };
 
 

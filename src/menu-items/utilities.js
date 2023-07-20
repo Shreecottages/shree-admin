@@ -42,24 +42,23 @@ const utilities = {
     },
     {
       id: 'icons',
-      title: 'Icons',
+      title: 'Gallery',
       type: 'collapse',
       icon: icons.IconWindmill,
       children: [
         {
           id: 'tabler-icons',
-          title: 'Tabler Icons',
+          title: 'Images Module',
           type: 'item',
           url: '/icons/tabler-icons',
           breadcrumbs: false
         },
         {
           id: 'material-icons',
-          title: 'Material Icons',
+          title: 'Video Module',
           type: 'item',
           external: true,
-          target: '_blank',
-          url: 'https://mui.com/material-ui/material-icons/',
+          url: '/icons/material-icons',
           breadcrumbs: false
         }
       ]
