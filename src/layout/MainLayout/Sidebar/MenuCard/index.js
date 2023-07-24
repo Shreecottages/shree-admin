@@ -7,20 +7,17 @@ import {
   Card,
   CardContent,
   Grid,
-  LinearProgress,
   List,
   ListItem,
   ListItemAvatar,
-  ListItemText,
   Typography,
-  linearProgressClasses
 } from '@mui/material';
 
 // assets
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
+// import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 
 // styles
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+/*const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 30,
   [`&.${linearProgressClasses.colorPrimary}`]: {
@@ -30,7 +27,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     borderRadius: 5,
     backgroundColor: theme.palette.primary.main
   }
-}));
+}));*/
 
 const CardStyle = styled(Card)(({ theme }) => ({
   background: theme.palette.primary.light,
@@ -105,7 +102,7 @@ const MenuCard = () => {
                 <TableChartOutlinedIcon fontSize="inherit" />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText
+            {/* <ListItemText
               sx={{ mt: 0 }}
               primary={
                 <Typography variant="subtitle1" sx={{ color: theme.palette.primary[800] }}>
@@ -113,7 +110,7 @@ const MenuCard = () => {
                 </Typography>
               }
               secondary={<Typography variant="caption"> 28/23 GB</Typography>}
-            />
+            /> */}
           </ListItem>
         </List>
         <LinearProgressWithLabel value={80} />

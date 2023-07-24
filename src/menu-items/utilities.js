@@ -1,12 +1,13 @@
 // assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill } from '@tabler/icons';
+import { IconTypography, IconPalette, IconShadow,IconAddressBook, IconPhoto } from '@tabler/icons';
 
 // constant
 const icons = {
   IconTypography,
   IconPalette,
   IconShadow,
-  IconWindmill
+  IconAddressBook,
+  IconPhoto
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
@@ -17,34 +18,10 @@ const utilities = {
   type: 'group',
   children: [
     {
-      id: 'util-typography',
-      title: 'Image Module',
-      type: 'item',
-      url: '/utils/util-typography',
-      icon: icons.IconTypography,
-      breadcrumbs: false
-    },
-    {
-      id: 'util-color',
-      title: 'Color',
-      type: 'item',
-      url: '/utils/util-color',
-      icon: icons.IconPalette,
-      breadcrumbs: false
-    },
-    {
-      id: 'util-shadow',
-      title: 'Shadow',
-      type: 'item',
-      url: '/utils/util-shadow',
-      icon: icons.IconShadow,
-      breadcrumbs: false
-    },
-    {
       id: 'icons',
       title: 'Gallery',
       type: 'collapse',
-      icon: icons.IconWindmill,
+      icon: icons.IconPhoto,
       children: [
         {
           id: 'tabler-icons',
@@ -62,7 +39,23 @@ const utilities = {
           breadcrumbs: false
         }
       ]
+    },
+    {
+      id: 'contact-icons',
+      title: 'Contact Us ',
+      type: 'collapse',
+      icon: icons.IconAddressBook,
+      children: [
+        {
+          id: 'contact-icons',
+          title: 'Contact Us Query',
+          type: 'item',
+          url: '/icons/contact-icons',
+          breadcrumbs: false
+        }
+      ]
     }
+
   ]
 };
 
