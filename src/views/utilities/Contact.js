@@ -95,6 +95,7 @@ return(
                   <th>Email</th>
                   <th>Mobile No</th>
                   <th>Message</th>
+                  <th>Posting Date</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -106,6 +107,8 @@ return(
                   <td>{item.email}</td>
                   <td>{item.mobile_no}</td>
                   <td>{item.message}</td>
+                  <td>{item.posting_date}</td>
+                  
                   {<td><Button sx={{color:"crimson"}} onClick={() => handleDelete(item.id)}>Delete</Button></td>}
                 </tr>
               ))}
