@@ -13,6 +13,15 @@ import { store } from 'store';
 import 'assets/scss/style.scss';
 import config from './config';
 
+import { hydrate, render } from "react-dom";
+
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(<root />, rootElement);
+} else {
+  render(<root />, rootElement);
+}
+
 // ==============================|| REACT DOM RENDER  ||============================== //
 
 const container = document.getElementById('root');
