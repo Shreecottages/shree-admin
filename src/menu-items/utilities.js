@@ -55,15 +55,15 @@ const utilities = {
         }
       ]
     },
-    {
-      id: 'login',
-      title: 'Log In',
-      type: 'item',
-      url: '/login',
-      icon: icons.IconHelp,
-      external: true,
-      target: true
-    }
+    // {
+    //   id: 'login',
+    //   title: 'Log In',
+    //   type: 'item',
+    //   url: '/login',
+    //   icon: icons.IconHelp,
+    //   external: true,
+    //   target: true
+    // }
   ]
 };
 

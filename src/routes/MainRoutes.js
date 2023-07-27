@@ -32,7 +32,7 @@ const MainRoutes = {
     },
     {
       path: '/',
-      element: <DashboardDefault />
+      element: <Login />
     },
     {
       path: 'dashboard',
