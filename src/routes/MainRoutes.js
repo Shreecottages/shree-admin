@@ -1,7 +1,9 @@
+// import MainLayout from 'layout/MainLayout';
+import MainLayout from 'layout/MainLayout';
 import { lazy } from 'react';
 
 // project imports
-import MainLayout from 'layout/MainLayout';
+// import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
 
 // dashboard routing
@@ -24,27 +26,24 @@ const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 
 const MainRoutes = {
   path: '/',
-  element: <MainLayout />,
   children: [
-    {
-      path: '/login',
-      element: <Login />
-    },
     {
       path: '/',
       element: <Login />
     },
     {
       path: 'dashboard',
-      children: [
+      element: <MainLayout />,
+      children:[
         {
-          path: 'default',
-          element: <DashboardDefault />
+        path: 'default',
+        element: <DashboardDefault />,
         }
-      ]
+      ],
     },
     {
       path: 'utils',
+      element: <MainLayout />,
       children: [
         {
           path: 'util-typography',
@@ -54,6 +53,7 @@ const MainRoutes = {
     },
     {
       path: 'utils',
+      element: <MainLayout />,
       children: [
         {
           path: 'util-color',
@@ -63,6 +63,7 @@ const MainRoutes = {
     },
     {
       path: 'utils',
+      element: <MainLayout />,
       children: [
         {
           path: 'util-shadow',
@@ -72,6 +73,7 @@ const MainRoutes = {
     },
     {
       path: 'icons',
+      element: <MainLayout />,
       children: [
         {
           path: 'tabler-icons',
@@ -81,6 +83,7 @@ const MainRoutes = {
     },
     {
       path: 'icons',
+      element: <MainLayout />,
       children: [
         {
           path: 'material-icons',
@@ -90,6 +93,7 @@ const MainRoutes = {
     },
     {
       path: 'icons',
+      element: <MainLayout />,
       children: [
         {
           path: 'contact-icons',
@@ -101,7 +105,6 @@ const MainRoutes = {
       path: 'sample-page',
       element: <SamplePage />
     },
-    
   ]
 };
 

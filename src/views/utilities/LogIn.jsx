@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom'; 
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useTheme } from '@mui/material';
 
@@ -7,6 +7,10 @@ import { useTheme } from '@mui/material';
 
 const LogIn = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate('/dashboard');
+  };
   return (
     <Box>
       <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -20,7 +24,7 @@ const LogIn = () => {
           <TextField sx={{ width: '100%', fontFamily:"Poppins", marginTop:"1vh" }} id="email" label="Enter Password" variant="outlined" />
 
           <Box sx={{ width: '100%', display: 'flex', justifyContent: 'right', marginTop: '3vh' }}>
-            <Button sx={{ background: theme.palette.secondary.dark, color:"white" }}>Login</Button>
+            <Button onClick={handleLogin} sx={{ background: theme.palette.secondary.dark, color:"white" }}>Login</Button>
           </Box>
 
           <Typography sx={{marginTop:"2vh", color:theme.palette.secondary.dark, fontFamily:"Poppins"}}>Don&apos;t have an Account? Register</Typography>          
