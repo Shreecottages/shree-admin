@@ -8,6 +8,7 @@ import { useTheme } from '@mui/material/styles';
 import {
   Avatar,
   Box,
+  Button,
   // Card,
   // CardContent,
   Chip,
@@ -37,7 +38,7 @@ import Transitions from 'ui-component/extended/Transitions';
 import User1 from 'assets/images/users/user-round.svg';
 
 // assets
-import {IconSettings} from '@tabler/icons';
+import { IconSettings } from '@tabler/icons';
 
 // ==============================|| PROFILE MENU ||============================== //
 
@@ -164,6 +165,7 @@ const ProfileSection = () => {
                       </Stack>
                       <Typography variant="subtitle2">Project Admin</Typography>
                     </Stack>
+
                     {/* <OutlinedInput
                       sx={{ width: '100%', pr: 1, pl: 2, my: 2 }}
                       id="input-search-profile"
@@ -181,18 +183,21 @@ const ProfileSection = () => {
                       }}
                     /> */}
                     <Divider />
+                    <Button sx={{ background: theme.palette.primary.dark, padding: '5px 15px', marginTop: '1vh', color:"white",'&:hover': {background:theme.palette.secondary.dark} }}>
+                      Log Out
+                    </Button>
                   </Box>
                   <PerfectScrollbar style={{ height: '100%', maxHeight: 'calc(100vh - 250px)', overflowX: 'hidden' }}>
                     <Box sx={{ p: 2 }}>
                       {/* <UpgradePlanCard /> */}
-                      <Divider />
+                      {/* <Divider /> */}
                       {/* <Card
                         sx={{
                           bgcolor: theme.palette.primary.light,
                           my: 2
                         }}
                       >  */}
-                        {/* <CardContent>
+                      {/* <CardContent>
                           <Grid container spacing={3} direction="column">
                             <Grid item>
                               <Grid item container alignItems="center" justifyContent="space-between">
@@ -245,7 +250,7 @@ const ProfileSection = () => {
                           }
                         }}
                       > */}
-                        {/* <ListItemButton
+                      {/* <ListItemButton
                           sx={{ borderRadius: `${customization.borderRadius}px` }}
                           selected={selectedIndex === 0}
                           onClick={(event) => handleListItemClick(event, 0, '#')}
@@ -255,7 +260,7 @@ const ProfileSection = () => {
                           </ListItemIcon>
                           <ListItemText primary={<Typography variant="body2">Account Settings</Typography>} />
                         </ListItemButton> */}
-                        {/* <ListItemButton
+                      {/* <ListItemButton
                           sx={{ borderRadius: `${customization.borderRadius}px` }}
                           selected={selectedIndex === 1}
                           onClick={(event) => handleListItemClick(event, 1, '#')}
@@ -283,7 +288,7 @@ const ProfileSection = () => {
                             }
                           />
                         </ListItemButton>  */}
-                        {/* <ListItemButton
+                      {/* <ListItemButton
                           sx={{ borderRadius: `${customization.borderRadius}px` }}
                           selected={selectedIndex === 4}
                           onClick={handleLogout}
@@ -300,12 +305,10 @@ const ProfileSection = () => {
               </ClickAwayListener>
             </Paper>
           </Transitions>
-          
         )}
-        
       </Popper>
     </>
   );
-                    }
+};
 
 export default ProfileSection;
