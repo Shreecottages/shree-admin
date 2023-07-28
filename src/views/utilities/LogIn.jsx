@@ -9,7 +9,7 @@ const LogIn = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const handleLogin = () => {
-    navigate('/dashboard');
+    navigate('/dashboard/default');
   };
   return (
     <Box>
