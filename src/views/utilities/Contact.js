@@ -9,38 +9,34 @@ import { gridSpacing } from 'store/constant';
 // import { Form } from 'formik';
 
 // ==============================|| Data ||============================== //
-const initialDataV = [
-  {
-    id: 1,
-    name: "ABC",
-    email: "Sangeet Video",
-    mobile_no:"7878153615",
-    message:"hello"
-  },
-  {
-    id: 2,
-    name: "ABC",
-    email: "Sangeet Video",
-    mobile_no:"7878153615",
-    message:"hello"
-  },
-  {
-    id: 3,
-    name: "ABC",
-    email: "Sangeet Video",
-    mobile_no:"7878153615",
-    message:"hello"
-  },
-]
+// const initialDataV = [
+//   {
+//     id: 1,
+//     name: "ABC",
+//     email: "Sangeet Video",
+//     mobile_no: "7878153615",
+//     message: "hello"
+//   },
+//   {
+//     id: 2,
+//     name: "ABC",
+//     email: "Sangeet Video",
+//     mobile_no: "7878153615",
+//     message: "hello"
+//   },
+//   {
+//     id: 3,
+//     name: "ABC",
+//     email: "Sangeet Video",
+//     mobile_no: "7878153615",
+//     message: "hello"
+//   },
+// ]
 
-const MaterialIcons = () =>{
+const MaterialIcons = () => {
 
   // const [data, setData] = useState(initialData);
-  const [datav, setDatav] = useState(() => {
-    // Load initial data from local storage, or use initialData if not available
-    // const storedDataV = JSON.parse(localStorage.getItem('tableDataV'));
-    return initialDataV;
-  });
+  const [datav, setDatav] = useState();
   // const [newItemv, setNewItemv] = useState({ link: '', desc: '' });
   // const [lastUsedId, setLastUsedId] = useState(initialData.length);
 
@@ -53,7 +49,15 @@ const MaterialIcons = () =>{
   useEffect(() => {
     // Save data to local storage whenever it changes
     localStorage.setItem('tableDataV', JSON.stringify(datav));
-  }, [datav]);
+
+    async function getData() {
+      let data = await fetch("http://127.0.0.1:8000/api/v1/getcontact");
+      data = await data.json();
+      setDatav(data.data);
+    }
+    getData();
+
+  }, []);
 
   // useEffect(() => {
   //   // Save last used ID to local storage whenever it changes
@@ -75,52 +79,62 @@ const MaterialIcons = () =>{
   // };
 
 
-  const handleDelete = (itemIdV) => {
-    setDatav((prevDatav) => prevDatav.filter((item) => item.id !== itemIdV));
+  const handleDelete = async (itemIdV) => {
+    await fetch(`http://127.0.0.1:8000/api/v1/deleteContact/${itemIdV}`, {
+      method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+    });
+
+
+    let data = await fetch("http://127.0.0.1:8000/api/v1/getcontact");
+    data = await data.json();
+    setDatav(data.data);
   };
-return(
-  <MainCard title="Contact Us Query">
-    <Grid container spacing={gridSpacing}>
-      <Grid item xs={6} sm={8} md={12}>
-      </Grid>
-      <Grid item xs={12} sm={12}>
-        <SubCard title="">
-          <Grid container direction="column">
-            <Grid item>
-            <table style={{width:"100%"}}>
-              <thead>
-                <tr style={{color:"#1565C0"}}>
-                  <th>No.</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Mobile No</th>
-                  <th>Message</th>
-                  <th>Posting Date</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-              {datav.map(item => (
-                <tr key={item.id} style={{justifyContent:"center",textAlign:"center"}}>
-                  <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.mobile_no}</td>
-                  <td>{item.message}</td>
-                  <td>{item.posting_date}</td>
-                  
-                  {<td><Button sx={{color:"crimson"}} onClick={() => handleDelete(item.id)}>Delete</Button></td>}
-                </tr>
-              ))}
-              </tbody>
-            </table>
+
+
+  return (
+    <MainCard title="Contact Us Query">
+      <Grid container spacing={gridSpacing}>
+        <Grid item xs={6} sm={8} md={12}>
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <SubCard title="">
+            <Grid container direction="column">
+              <Grid item>
+                <table style={{ width: "100%" }}>
+                  <thead>
+                    <tr style={{ color: "#1565C0" }}>
+                      <th>No.</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Mobile No</th>
+                      <th>Message</th>
+                      <th>Posting Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {datav && datav.map((item, index) => (
+                      <tr key={item._id} style={{ justifyContent: "center", textAlign: "center" }}>
+                        <td>{index + 1}</td>
+                        <td>{item.name}</td>
+                        <td>{item.email}</td>
+                        <td>{item.number}</td>
+                        <td>{item.message}</td>
+                        <td>{new Date(item.date).toLocaleString()}</td>
+
+                        {<td><Button sx={{ color: "crimson" }} onClick={() => handleDelete(item._id)}>Delete</Button></td>}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </Grid>
             </Grid>
-          </Grid>
-        </SubCard>
+          </SubCard>
+        </Grid>
       </Grid>
-    </Grid>
-  </MainCard>
-);
-} 
+    </MainCard>
+  );
+}
 
 export default MaterialIcons;
