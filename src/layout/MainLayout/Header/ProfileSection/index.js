@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // import { useNavigate } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
@@ -43,6 +44,8 @@ import { IconSettings } from '@tabler/icons';
 // ==============================|| PROFILE MENU ||============================== //
 
 const ProfileSection = () => {
+
+  const navigate = useNavigate();
   const theme = useTheme();
   // const customization = useSelector((state) => state.customization);
   // const navigate = useNavigate();
@@ -87,6 +90,11 @@ const ProfileSection = () => {
 
     prevOpen.current = open;
   }, [open]);
+
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+    navigate('/');
+  }
 
   return (
     <>
@@ -183,7 +191,7 @@ const ProfileSection = () => {
                       }}
                     /> */}
                     <Divider />
-                    <Button sx={{ background: theme.palette.primary.dark, padding: '5px 15px', marginTop: '1vh', color:"white",'&:hover': {background:theme.palette.secondary.dark} }}>
+                    <Button onClick={handleLogout} sx={{ background: theme.palette.primary.dark, padding: '5px 15px', marginTop: '1vh', color: "white", '&:hover': { background: theme.palette.secondary.dark } }}>
                       Log Out
                     </Button>
                   </Box>

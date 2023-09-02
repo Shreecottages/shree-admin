@@ -1,6 +1,7 @@
 import { Button, Grid } from '@mui/material';
 // import MuiTypography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // project imports
 import SubCard from 'ui-component/cards/SubCard';
 import MainCard from 'ui-component/cards/MainCard';
@@ -41,6 +42,14 @@ const MaterialIcons = () => {
     return lastUsedIdV ? parseInt(lastUsedIdV, 10) : initialDataV.length;
   });
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token') == null) {
+      navigate('/');
+    }
+  }, [])
+
   useEffect(() => {
     // Save data to local storage whenever it changes
     localStorage.setItem('tableDataV', JSON.stringify(datav));
@@ -53,7 +62,6 @@ const MaterialIcons = () => {
     async function getData() {
       let data = await fetch("http://127.0.0.1:8000/api/v1/getvideo");
       data = await data.json();
-      console.log(data.data);
       setDatav(data.data);
     }
     getData();
@@ -64,6 +72,8 @@ const MaterialIcons = () => {
   //   const { name, value } = event.target;
   //   setNewItemv({ ...newItemv, [name]: value });
   // };
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -89,7 +99,6 @@ const MaterialIcons = () => {
 
     let data = await fetch("http://127.0.0.1:8000/api/v1/getvideo");
     data = await data.json();
-    console.log(data.data);
     setDatav(data.data);
   };
 

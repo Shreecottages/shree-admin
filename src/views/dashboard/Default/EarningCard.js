@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 // import { useState } from 'react';
 
 // material-ui
+import React, { useEffect } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
 import { Box, Button, Grid, Typography, LinearProgress } from '@mui/material';
 
@@ -62,6 +64,15 @@ const EarningCard = ({ isLoading }) => {
   //   setAnchorEl(null);
   // };
 
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if (localStorage.getItem('token') == null) {
+      navigate('/');
+    }
+  }, [])
+
   return (
     <>
       {isLoading ? (
@@ -71,42 +82,42 @@ const EarningCard = ({ isLoading }) => {
           <Box sx={{ p: 3.25 }}>
             <Grid container direction="column">
               <Grid item>
-                <Grid container sx={{mb: '20px'}}>
-                  <Grid item sx={{zIndex: 1}}>
-                    <Typography variant='h3' sx={{color:"common.white"}}>Total Contact Us queries</Typography>
+                <Grid container sx={{ mb: '20px' }}>
+                  <Grid item sx={{ zIndex: 1 }}>
+                    <Typography variant='h3' sx={{ color: "common.white" }}>Total Contact Us queries</Typography>
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid container alignItems="center" justifyContent="space-between" sx={{width:"100%"}}>
+                <Grid container alignItems="center" justifyContent="space-between" sx={{ width: "100%" }}>
                   <Grid item>
-                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500}}>{cont}</Typography>
+                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500 }}>{cont}</Typography>
                   </Grid>
                   <Grid item>
                     <Button variant='contained' sx={{
-                        backgroundColor: theme.palette.secondary[200],
-                        color: theme.palette.secondary.dark,
-                        zIndex: 1,
-                        ':hover':{
-                          backgroundColor: theme.palette.secondary.dark,
-                          color: 'common.white'
-                        }
-                      }}><ArrowForward /></Button>
+                      backgroundColor: theme.palette.secondary[200],
+                      color: theme.palette.secondary.dark,
+                      zIndex: 1,
+                      ':hover': {
+                        backgroundColor: theme.palette.secondary.dark,
+                        color: 'common.white'
+                      }
+                    }}><ArrowForward /></Button>
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item sx={{mt:"15px"}}>
-                  <LinearProgress variant="determinate" value={cont>=100?100:cont} sx={{
-                    color: theme.palette.secondary.dark,
-                    backgroundColor: theme.palette.secondary[200],
-                    height: '7px',
-                    // padding:"1px",
-                    borderRadius:"4px",
-                    zIndex: 1,
-                    "& .MuiLinearProgress-bar": {
-                      backgroundColor: theme.palette.secondary[800]
-                    }
-                  }} />
+              <Grid item sx={{ mt: "15px" }}>
+                <LinearProgress variant="determinate" value={cont >= 100 ? 100 : cont} sx={{
+                  color: theme.palette.secondary.dark,
+                  backgroundColor: theme.palette.secondary[200],
+                  height: '7px',
+                  // padding:"1px",
+                  borderRadius: "4px",
+                  zIndex: 1,
+                  "& .MuiLinearProgress-bar": {
+                    backgroundColor: theme.palette.secondary[800]
+                  }
+                }} />
               </Grid>
             </Grid>
           </Box>

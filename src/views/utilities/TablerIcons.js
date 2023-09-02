@@ -6,6 +6,7 @@ import SubCard from 'ui-component/cards/SubCard';
 import MainCard from 'ui-component/cards/MainCard';
 // import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
 import { gridSpacing } from 'store/constant';
+import { useNavigate } from 'react-router-dom';
 
 // // styles
 // const IFrameWrapper = styled('iframe')(({ theme }) => ({
@@ -166,6 +167,13 @@ function TablerIcons() {
     setDatav(data.data);
   };
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token') == null) {
+      navigate('/');
+    }
+  }, [])
 
   const [cat, setcat] = useState('Resort');
   const [fil, setfil] = useState(null);
@@ -176,6 +184,7 @@ function TablerIcons() {
     setdes(e.target.value);
   };
 
+  
   const handleFileChange = (e) => {
     setfil(e.target.files[0]);
     console.log(e.target.files[0]);

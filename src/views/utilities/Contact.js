@@ -1,6 +1,7 @@
 import { Button, Grid } from '@mui/material';
 // import MuiTypography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // project imports
 import SubCard from 'ui-component/cards/SubCard';
 import MainCard from 'ui-component/cards/MainCard';
@@ -91,6 +92,14 @@ const MaterialIcons = () => {
     setDatav(data.data);
   };
 
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token') == null) {
+      navigate('/');
+    }
+  }, [])
 
   return (
     <MainCard title="Contact Us Query">
