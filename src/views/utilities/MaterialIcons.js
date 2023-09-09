@@ -60,7 +60,7 @@ const MaterialIcons = () => {
     localStorage.setItem('lastUsedIdV', lastUsedIdV);
 
     async function getData() {
-      let data = await fetch("http://127.0.0.1:8000/api/v1/getvideo");
+      let data = await fetch("http://13.233.31.166:8000/api/v1/getvideo");
       data = await data.json();
       setDatav(data.data);
     }
@@ -82,7 +82,7 @@ const MaterialIcons = () => {
     setLastUsedIdV((prevId) => prevId + 1);
     setNewItemv({ link: '', desc: '' });
 
-    await fetch('http://127.0.0.1:8000/api/v1/video', {
+    await fetch('http://13.233.31.166:8000/api/v1/video', {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
 
@@ -97,7 +97,7 @@ const MaterialIcons = () => {
     setlink1('');
     setdesc1('');
 
-    let data = await fetch("http://127.0.0.1:8000/api/v1/getvideo");
+    let data = await fetch("http://13.233.31.166:8000/api/v1/getvideo");
     data = await data.json();
     setDatav(data.data);
   };
@@ -105,7 +105,7 @@ const MaterialIcons = () => {
 
   const handleDelete = async (itemIdV) => {
 
-    await fetch(`http://127.0.0.1:8000/api/v1/deletevideo/${itemIdV}`, {
+    await fetch(`http://13.233.31.166:8000/api/v1/deletevideo/${itemIdV}`, {
       method: "DELETE", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
 
@@ -115,7 +115,7 @@ const MaterialIcons = () => {
     });
 
 
-    let data = await fetch("http://127.0.0.1:8000/api/v1/getvideo");
+    let data = await fetch("http://13.233.31.166:8000/api/v1/getvideo");
     data = await data.json();
     setDatav(data.data);
   };

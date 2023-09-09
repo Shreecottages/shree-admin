@@ -63,7 +63,7 @@ function TablerIcons() {
 
 
     async function getData() {
-      let data = await fetch("http://127.0.0.1:8000/api/v1/getImage");
+      let data = await fetch("http://13.233.31.166:8000/api/v1/getImage");
       data = await data.json();
       setDatav(data.data);
     }
@@ -123,7 +123,7 @@ function TablerIcons() {
     formData.append('desc', des);
 
     // console.log('aksh', JSON.stringify({ index, desc: des, avatar: fil }));
-    await fetch('http://127.0.0.1:8000/api/v1/uploadImage', {
+    await fetch('http://13.233.31.166:8000/api/v1/uploadImage', {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
 
@@ -131,7 +131,7 @@ function TablerIcons() {
       body: formData
     });
 
-    let data = await fetch("http://127.0.0.1:8000/api/v1/getImage");
+    let data = await fetch("http://13.233.31.166:8000/api/v1/getImage");
     data = await data.json();
     setDatav(data.data);
 
@@ -156,13 +156,13 @@ function TablerIcons() {
   };
 
   const handleDelete = async (itemId) => {
-    await fetch(`http://127.0.0.1:8000/api/v1/deleteImage/${itemId}`, {
+    await fetch(`http://13.233.31.166:8000/api/v1/deleteImage/${itemId}`, {
       method: "DELETE", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
     });
 
 
-    let data = await fetch("http://127.0.0.1:8000/api/v1/getImage");
+    let data = await fetch("http://13.233.31.166:8000/api/v1/getImage");
     data = await data.json();
     setDatav(data.data);
   };

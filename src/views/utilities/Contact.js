@@ -52,7 +52,7 @@ const MaterialIcons = () => {
     localStorage.setItem('tableDataV', JSON.stringify(datav));
 
     async function getData() {
-      let data = await fetch("http://127.0.0.1:8000/api/v1/getcontact");
+      let data = await fetch("http://13.233.31.166:8000/api/v1/getcontact");
       data = await data.json();
       setDatav(data.data);
     }
@@ -81,13 +81,13 @@ const MaterialIcons = () => {
 
 
   const handleDelete = async (itemIdV) => {
-    await fetch(`http://127.0.0.1:8000/api/v1/deleteContact/${itemIdV}`, {
+    await fetch(`http://13.233.31.166:8000/api/v1/deleteContact/${itemIdV}`, {
       method: "DELETE", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
     });
 
 
-    let data = await fetch("http://127.0.0.1:8000/api/v1/getcontact");
+    let data = await fetch("http://13.233.31.166:8000/api/v1/getcontact");
     data = await data.json();
     setDatav(data.data);
   };
